@@ -1,3 +1,5 @@
+const { GraphQLError } = require('graphql');
+
 // use this to decode a token and get the user's information out of it
 import decode from 'jwt-decode';
 
@@ -43,6 +45,10 @@ class AuthService {
     localStorage.removeItem('id_token');
     // this will reload the page and reset the state of the application
     window.location.assign('/');
+  }
+
+  handleGraphQLError(error) {
+    console.error('GraphQL error:', error);
   }
 }
 
